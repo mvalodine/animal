@@ -41,17 +41,17 @@ int main() {
 	fritz.do_act();
 	cout << "The snail " << endl;
 	snail.do_act(); 
- 
+	
 	cout <<"The cat through an Animal Pointer"<<endl;
 	Animal *aptr = &fritz;
 	// (*aptr).do_act() is the same thing as below.  Aka go follow this pointer and then do action. 
 	aptr->do_act(); // Since we used the pointer, we still have the Cat behavior. Not an animal, but rather a buisness card to animals.  Want to change value of pointer vs  where the pointer points
 	// cout << "mouse" << aptr->mouse; wont work until we change Animal *aptr above to Cats *aptr
- 
+	
 	cout <<"The cat assigned to an Animal"<<endl;
 	snail = fritz; // if it takes a more specific type and sticks it into a generic animal variable, it will act like an animal.
 	snail.do_act(); // Slicing stripped off the cat behavior and data
- 
+	
 	cout <<"The cat in a vector of Animal pointers"<<endl;
 	vector<Animal *> animals;
 	animals.push_back(new Cat);
@@ -61,20 +61,20 @@ int main() {
 	animals[0]->do_act(); // new Cat does do_act
 	animals[1]->do_act(); 
 	animals[2]->do_act();// Since we didnt copy, we can still call the Cat do_act, thing at animals[1] do action.
-
+	
 	vector <Animal* > zoo;
 	zoo.push_back(animals[1]);// points to the same place as animals one.  Can have a set of all animals, and then actually can have a working set aka which ones are being considered.
 	/*for (unsigned int i=0; i< animals.size() ; i++) 
 	{
 		delete animals[i]; // deletes empty spaces, doesn't delete whats inside vector, just the spaces not being used...i
 	}*/
- 
+	
 	cout <<"The cat in a vector of Animals"<<endl;
 	vector<Animal> pets;
 	pets.push_back(fido); // this one is like "go make a copy" since it doesn't have an anpercandt
 	pets.push_back(fritz);
 	pets[0].do_act();
 	pets[1].do_act(); // This will call the Animal do_act
- 
+	
 	system("pause");
 }
